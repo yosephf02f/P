@@ -16,8 +16,8 @@ namespace Hoteles
         HabitacionesBL _habitacionesBL;
         CategoriasBL _categoriasBL;
         ClientesBL _clientesBL;
-        DatosClienteBL _datosClienteBL;    
-
+        DatosClienteBL _datosClienteBL;
+        FacturaBL _facturaBL;
 
 
 
@@ -28,7 +28,7 @@ namespace Hoteles
             _categoriasBL = new CategoriasBL();
             _clientesBL = new ClientesBL();
             _datosClienteBL = new DatosClienteBL();
-
+            _facturaBL = new FacturaBL();
         }
 
         private void habitacionesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,6 +48,17 @@ namespace Hoteles
             formClientes.cargarDatos(_clientesBL, _datosClienteBL);
 
             formClientes.Show();
+
+        }
+
+        private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formFactura = new Form3();
+            formFactura.MdiParent = this;//para que el formulario quede conteido dentro del menu
+
+            formFactura.cargarDatos(_facturaBL, _clientesBL, _habitacionesBL);
+
+            formFactura.Show();
 
         }
     }
